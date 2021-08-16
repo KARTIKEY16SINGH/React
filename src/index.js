@@ -8,7 +8,7 @@ const checklist = ["boots", "tent", "headlamp"];
 console.log(checklist);
 
 ReactDOM.render(
-  <App authorized={true} />,
+  <App login="manish" />,
   document.getElementById('root')
 );
 
