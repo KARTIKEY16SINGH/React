@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import './App.css';
 import restaurant from "./restaurant.jpg"
 
@@ -11,11 +11,24 @@ function RegularComponent() {
 }
 
 function App({ authorized }) {
+  const [emotion, setEmotion] = useState("happy");
+  console.log(emotion, setEmotion);
   return (
     <>
-      {
+      {/* {
         authorized ? <SecretComponent /> : <RegularComponent />
-      }
+      } */}
+
+      <h1>Current emotion is {emotion}</h1>
+      <button onClick={() => setEmotion("happy")}>
+        Happy
+      </button>
+      <button onClick={() => setEmotion("frustrated")}>
+        Frustrate
+      </button>
+      <button onClick={() => setEmotion("enthusiastic")}>
+        Enthuse
+      </button>
     </>
   );
   // if (props.authorized) {
