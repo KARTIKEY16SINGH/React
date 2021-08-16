@@ -2,64 +2,27 @@
 import './App.css';
 import restaurant from "./restaurant.jpg"
 
-function Header(props) {
-  console.log(props)
-  return (
-    <header>
-      <h1>{props.name}'s Kitchen</h1>
-    </header>
-  );
+function SecretComponent() {
+  return <h1>Secret information for authorized users only</h1>;
 }
 
-function Main(props) {
-  console.log(props)
-  return (
-    <section>
-      <p>We serve the most {props.adjective} food around.</p>
-      <img scr="https://github.com/eveporcello.png" height={200} alt="eveporcello" />
-      <img src={restaurant} height={200} alt="napkin and sliverware at a restaurant table" />
-      <ul style={{ textAlign: "left" }}>
-        {
-          props.dishes.map((dish) => (
-            <li key={dish.id}>
-              {dish.title}
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  );
+function RegularComponent() {
+  return <h1>Everyone can see this component.</h1>;
 }
 
-function Footer(p) {
-  console.log(p)
+function App({ authorized }) {
   return (
-    <footer>
-      <p>Copyright {p.year}</p>
-    </footer>
+    <>
+      {
+        authorized ? <SecretComponent /> : <RegularComponent />
+      }
+    </>
   );
-}
-
-const dishes = [
-  "Pizza",
-  "Samosa",
-  "Pasta",
-  "Burger",
-  "Naan",
-  "Maggi",
-  "Ice-cream"
-];
-
-const dishObject = dishes.map((dish, i) => ({ id: i, title: dish }));
-
-function App() {
-  return (
-    <div className="App">
-      <Header name="Kartikey" />
-      <Main adjective="amazing" dishes={dishObject} />
-      <Footer year={new Date().getFullYear()} />
-    </div>
-  );
+  // if (props.authorized) {
+  //   return <SecretComponent />;
+  // } else {
+  //   return <RegularComponent />;
+  // }
 }
 
 export default App;

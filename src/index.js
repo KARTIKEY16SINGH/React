@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const checklist = ["boots", "tent", "headlamp"];
+console.log(checklist);
+
 ReactDOM.render(
-  <App />,
+  <App authorized={true} />,
   document.getElementById('root')
 );
 
