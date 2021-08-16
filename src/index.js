@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <ul>
+  React.createElement(
+    "ul",
+    null,
     <li>Monday</li>
-    <li>Tuesday</li>
-    <li>Wednesday</li>
-  </ul>,
+  ),
   document.getElementById('root')
 );
 
